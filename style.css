@@ -1,0 +1,277 @@
+/* styling image slider */ 
+/* font linkage */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+*
+{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing:border-box;
+}
+/* style header, body and setting height and width for the image container box */
+body
+{
+    width:100vw;
+    height:100vh;
+    display:grid;
+    place-items: center;
+}
+h3
+{
+    font: size 25px;;
+    margin-top:20px;
+    color:blueviolet;
+}
+.container
+{
+    height:400px;
+    max-width:800px;
+    overflow:hidden;
+    position:relative;
+    user-select:none;
+}
+/* bringing images in the middle of the webpage */ 
+.container img
+{
+   width:100%;
+   height:auto;
+   position:relative;
+   margin:auto;
+   vertical-align: middle;
+}
+/* intially the 1st image only visible other images hidden behind 1st image */
+.images,.hidden
+{
+    display:none;
+}
+/* animating images for better look */
+.active
+{
+    display:block;
+    animation:fadeanimation 0.5s;
+}
+/* styling prev and next button */
+.slider-btns
+{
+   
+   position:absolute;
+   top:50%;
+   transform:translateY(-50%);
+   width:100%;
+   display:flex;
+   justify-content:space-between;
+   visibility: hidden;
+}
+.slider-btns button
+{
+   font-size:30px;
+   font-weight:500;
+   background-color:rgba(0,0,0,0.5);
+   border:none;
+   color:white;
+   width:30px;
+   height:30px;
+   line-height:30px;
+   cursor:pointer;
+}
+/* when we hover on the image then only the prev and next buttons will become visible */
+.container:hover .slider-btns
+{
+  visibility: visible;
+}
+/* fading animation for providing a good look */
+@keyframes fadeanimation
+{
+    0%
+    {
+        opacity:0;
+    }
+    100%
+    {
+        opacity:1;
+        transition:opacity linear;
+    }
+}
+/* creation of bars for customized view */
+.dots
+{
+    background-color:rgba(0,0,0,0.5);
+    width:100%;
+    height:15px;
+    position:absolute;
+    bottom:0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap:10px;
+}
+.dot
+{
+    width:25px;
+    height:5px;
+    background-color:rgba(241,241,241,0.2);
+    cursor:pointer;
+}
+/* providing visibility to the respective bar depends on the image selection*/
+.dot-active
+{
+   background-color: white;
+}
+
+/* using media queries for creating responsive design */
+/* mobile and desktop views */
+
+@media (max-width:768px)
+{
+    h3
+    {
+        font-size:20px;
+    }
+    .container
+    {
+        height:300px;
+        max-width:600;
+        margin:10px;
+    }
+    .container img
+    {
+      width:80%;
+      height:auto;
+    }
+    .slider-btns button
+    {
+        font-size:25px;
+        width:25px;
+        height:25px;
+    }
+    .dots
+    {
+     background-color:rgba(0,0,0,0.5);
+     width:100%;
+     height:10px;
+     position:absolute;
+     bottom:0;
+     display: flex;
+    justify-content: center;
+    align-items:center;
+    gap:7px;
+   }
+    .dot
+    {
+        width:20px;
+        height:4px;
+    }
+}
+@media (max-width:600px)
+{
+    h3
+    {
+        font-size:25px;
+    }
+    .container
+    {
+        height:250px;
+        max-width:650;
+        margin:20px;
+    }
+    .container img
+    {
+      width:80%;
+      height:auto;
+    }
+    .slider-btns button
+    {
+        font-size:20px;
+        width:20px;
+        height:20px;
+    }
+    .dot
+    {
+        width:18px;
+        height:3px;
+    }
+}
+@media (max-width:475px)
+{
+    h3
+    {
+        font-size:20px;
+    }
+    .container
+    {
+        height:200px;
+        max-width:500;
+        margin:30px;
+    }
+    .container img
+    {
+      width:80%;
+      height:auto;
+    }
+    .slider-btns button
+    {
+        font-size:15px;
+        width:15px;
+        height:15px;
+    }
+    .dot
+    {
+        width:10px;
+        height:2px;
+    }
+   
+}
+@media (max-width:275px)
+{
+    h3
+    {
+        font-size:10px;
+    }
+    .container
+    {
+        height:150px;
+        max-width:250;
+        margin:30px;
+    }
+    .container img
+    {
+      width:80%;
+      height:auto;
+    }
+    .slider-btns button
+    {
+        font-size:10px;
+        width:10px;
+        height:10px;
+    }
+    .slider-btns
+    {
+   
+     position:absolute;
+     top:50%;
+     transform:translateY(-50%);
+     width:100%;
+     display:flex;
+     justify-content:space-between;
+     visibility: hidden;
+    }
+    .dots
+    {
+     background-color:rgba(0,0,0,0.5);
+     width:100%;
+     height:2px;
+     position:absolute;
+     bottom:0;
+     display: flex;
+     justify-content: center;
+     align-items:center;
+     gap:1px;
+    }
+    .dot
+    {
+        width:6px;
+        height:1px;
+    }
+   
+}
